@@ -1,0 +1,124 @@
+:root {
+    --main-color: rgb(25, 79, 2); /*#194F02*/
+    --second-color: rgb(38, 38, 38); /*#262626*/
+    --main-font: verdana, sans-serif;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: var(--main-font);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 15px 10px;
+    color: white;
+    background: var(--main-color);
+}
+
+nav #logo {
+    width: 40%;
+    text-align: center;
+}
+
+nav #menu {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 10px 30px;
+    padding-right: 20px;
+}
+
+nav #logo img {
+    width: 180px;
+}
+
+nav #menu a {
+    display: inline-block;
+    color: white;
+    font-size: 2em;
+    text-decoration: none;
+}
+
+nav #menu a:hover {
+    transform: scale(1.2) translateY(5px);
+    transition: all 0.5s ease-in-out;
+}
+
+#main {
+    padding: 20px 50px;
+}
+
+#main h2 {
+    font-weight: bold;
+    color: var(--main-color);
+}
+
+#main #drugs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 15px;
+}
+
+#main #drugs .drug {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+#main #drugs .drug img {
+    width: 150px;
+}
+
+footer {
+    color: white;
+    background: var(--second-color);
+    padding: 40px 40px 10px 40px;
+}
+
+footer #content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+footer #content .footer-left {
+    width: 70%;
+    text-align: left;
+}
+
+footer #content .footer-right {
+    width: 30%;
+    text-align: left;
+}
+
+footer #content .footer-left img {
+    width: 200px;
+}
+
+footer #content .footer-left p {
+    width: 50%;
+    min-width: 230px;
+    text-align: justify;
+}
+
+footer #content .footer-right span {
+    display: inline-block;
+    margin: 10px 0px;
+}
+
+footer .copyright {
+    text-align: center;
+    font-size: 10pt;
+    margin: 20px 0px;
+}
+

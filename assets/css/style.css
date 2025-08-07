@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+nav img {
+  width: 200px;
+  height: 40px;
+  object-fit: cover;
+}
+.item {
+  display: flex;
+  width: 13%;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  /* list-style: none; */
+  list-style: none;
+}
+
+.item i {
+  font-size: 30px;
+  color: gray;
+}
+.bars {
+  display: none;
+}
+
+.branding {
+  background-image: url(../images/pha.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+.bg-green {
+  background: green;
+  opacity: 60%;
+  width: 100%;
+  height: 100vh;
+}
+.content {
+  position: absolute;
+  top: 6%;
+  padding-top: 7%;
+  padding-left: 10%;
+  padding-right: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+.title {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.search-barre {
+  background: #fff;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+}
+.search-barre input {
+  margin-left: 0.5rem;
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+}
+.search-barre i {
+  color: gray;
+  font-size: 20px;
+}
+.search-barre input::placeholder {
+  font-size: 19px;
+}
+.imgs{
+  display: flex;
+  justify-content: space-between;
+}
+.imgs img{
+    width: 200px;
+    height: 100px;
+    object-fit: cover;
+}
+footer{
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-lelt, .footer-right{
+  width: 15%;
+}
+
+.footer-lelt img{
+  width: 100px;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+.footer-right h3 {
+  margin-bottom: 12px;
+}
+
+.footer-right ul{
+  list-style: none;
+  padding: 0;
+}
+
+.footer-right li{
+  margin-bottom: 10px;
+}
+.footer-right i{
+  margin-right: 20px;
+}
+.copyright{
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.9em;
+  color: #ccc;
+}
