@@ -1,0 +1,875 @@
+:root {
+    --primary-color: #4e73df;
+    --success-color: #1cc88a;
+    --info-color: #36b9cc;
+    --warning-color: #f6c23e;
+    --danger-color: #e74a3b;
+    --secondary-color: #858796;
+    --light-color: #f8f9fc;
+    --dark-color: #5a5c69;
+    --main-font: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+    font-family: var(--main-font);
+    background-color: #f8f9fc;
+    overflow-x: hidden;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+
+
+/*
+=================================
+    Animations
+=================================
+*/
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animated {
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+}
+
+/*
+=================================
+    End Animations
+=================================
+*/
+
+
+
+/*
+=================================
+    SideBar (Menu laterale)
+=================================
+*/
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #fff;
+    color: #000;
+    transition: all 0.3s;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    min-height: 100vh;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px 10px;
+    /* background: #fff; */
+    /* border-bottom: 1px solid #eaecf4; */
+}
+
+
+#sidebar .sidebar-header .logo {
+    width: 40px;
+    margin: 0 auto;
+    /* height: 40px; */
+    margin-right: 10px;
+    background-position: center;
+    background-size: cover;
+    /* display: inline-block; */
+    /* vertical-align: middle; */
+}
+
+#sidebar .sidebar-header h3 {
+    display: inline-block;
+    margin: 0;
+    font-weight: 700;
+    color: var(--primary-color);
+    vertical-align: middle;
+}
+
+#sidebar .menu-text {
+    transition: opacity 0.3s;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+}
+
+#sidebar ul li a {
+    padding: 10px 20px;
+    font-size: 1em;
+    display: block;
+    color: #000;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar ul li a:hover {
+    color: var(--primary-color);
+    background: #f8f9fc;
+}
+
+#sidebar ul li.active > a {
+    color: #fff;
+    background: var(--primary-color);
+}
+
+#sidebar ul li a i {
+    margin-right: 10px;
+    color: #d1d3e2;
+}
+
+#sidebar.active {
+    /* margin-left: -250px; */
+    min-width: 80px;
+    max-width: 80px;
+    text-align: center;
+}
+
+#sidebar.active .sidebar-header h3,
+#sidebar.active .menu-text {
+    display: none;
+}
+
+#sidebar.active .sidebar-header .logo {
+    margin: 0 auto;
+    display: block;
+}
+
+#sidebar.active ul li a {
+    padding: 15px 10px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+#sidebar.active ul li a i {
+    margin-right: 0;
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+#sidebar.active ul li a span {
+    font-size: 0.7rem;
+    display: none;
+}
+
+#sidebar ul li.active > a i,
+#sidebar ul li a:hover i {
+    color: inherit;
+}
+
+#sidebarCollapse {
+    background: transparent;
+    border: none;
+    color: #d1d3e2;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    margin-right: 1rem;
+}
+
+#sidebarCollapse:hover {
+    color: var(--primary-color);
+}
+
+/*
+=================================
+    End SideBar (Menu laterale)
+=================================
+*/
+
+
+#content {
+    width: calc(100% - 250px);
+    min-height: 100vh;
+    margin-left: 10px;
+    transition: all 0.3s;
+}
+
+#content.active {
+    width: calc(100% - 80px);
+    margin-left: 50px;
+}
+
+
+
+
+/*
+=================================
+    NavBar
+=================================
+*/
+
+.navbar {
+    padding: 0.5rem 1rem;
+    background: #fff !important;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+}
+
+.navbar .search-bar {
+    width: 50%;
+    min-width: 250px;
+    margin: 0 auto;
+}
+
+.navbar .user-profile .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.navbar .user-profile .user-name {
+    font-weight: 600;
+    color: #000;
+}
+
+/*
+=================================
+    End NavBar
+=================================
+*/
+
+
+
+
+
+/*
+=================================
+    Dashboard
+=================================
+*/
+
+.card {
+    border: none;
+    border-radius: 0.35rem;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
+}
+
+.card-header {
+    background-color: #f8f9fc;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+/* Cartes spéciales */
+.card-header.bg-warning {
+    background-color: var(--warning-color) !important;
+}
+
+.card-header.bg-info {
+    background-color: var(--success-color) !important;
+}
+
+.card-header.bg-danger {
+    background-color: var(--danger-color) !important;
+}
+
+.card-header .dropdown-menu {
+    font-size: 0.85rem;
+}
+
+.card-header .dropdown-menu i {
+    width: 20px;
+    text-align: center;
+}
+
+.summary-card {
+    min-height: 120px;
+    border-left: 0.25rem solid !important;
+}
+
+.summary-card .text-primary {
+    color: var(--primary-color) !important;
+}
+
+.summary-card .text-success {
+    color: var(--success-color) !important;
+}
+
+.summary-card .text-info {
+    color: var(--info-color) !important;
+}
+
+.summary-card .text-warning {
+    color: var(--warning-color) !important;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #000;
+}
+
+.table th {
+    border-top: none;
+    border-bottom: 1px solid #e3e6f0;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: #4e73df;
+}
+
+.table td {
+    vertical-align: middle;
+    border-top: 1px solid #e3e6f0;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/*
+=================================
+    End Dashboard
+=================================
+*/
+
+
+
+
+
+
+
+/*
+=================================
+    Page Users
+=================================
+*/
+
+.usersTable th {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--primary-color);
+    border-bottom: 2px solid #e3e6f0;
+}
+
+.usersTable td {
+    vertical-align: middle;
+}
+
+.usersTable .btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    margin: 0 2px;
+}
+
+/*
+=================================
+    End Page Users
+=================================
+*/
+
+
+
+
+
+
+
+/*
+=================================
+    Page Commandes
+=================================
+*/
+
+#commandesTable {
+    font-size: 0.9rem;
+}
+
+#commandesTable th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    color: var(--primary-color);
+}
+
+/* Badges de statut */
+.badge-statut {
+    padding: 0.35em 0.65em;
+    font-size: 0.75em;
+    font-weight: 600;
+}
+
+.badge-en-cours {
+    background-color: var(--warning-color);
+    color: #000;
+}
+
+.badge-validee {
+    background-color: var(--success-color);
+    color: #fff;
+}
+
+.badge-annulee {
+    background-color: var(--danger-color);
+    color: #fff;
+}
+
+/* Wizard de commande */
+.step {
+    display: none;
+}
+
+.step.active {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Indicateur d'étape */
+.step-indicator {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    position: relative;
+}
+
+.step-circle.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.step-circle.completed {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.step-line {
+    flex-grow: 1;
+    height: 2px;
+    background-color: #e9ecef;
+    margin: 0 10px;
+    align-self: center;
+}
+
+.step-line.active {
+    background-color: var(--primary-color);
+}
+
+.step-line.completed {
+    background-color: var(--success-color);
+}
+
+
+/* Confirmation de commande */
+.confirmation-details {
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+}
+
+.confirmation-details p {
+    margin-bottom: 0.5rem;
+}
+
+.confirmation-details hr {
+    margin: 1rem 0;
+    opacity: 0.5;
+}
+
+/*
+=================================
+    End Page Commandes
+=================================
+*/
+
+
+
+
+
+/*
+=================================
+    Page Medicaments
+=================================
+*/
+
+#medicamentsTable {
+    font-size: 0.9rem;
+}
+
+#medicamentsTable th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    color: #4e73df;
+}
+
+#medicamentsTable .btn-group {
+    white-space: nowrap;
+}
+
+#medicamentsTable .btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+}
+
+/* Modal */
+#medicamentModal .modal-header {
+    background-color: #4e73df;
+}
+
+#medicamentModal .form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+#medicamentModal .form-control,
+#medicamentModal .input-group-text {
+    border-radius: 0.35rem;
+}
+
+/* Boutons d'action */
+.add-medicament-btn {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+/*
+=================================
+    End Page Medicaments
+=================================
+*/
+
+
+
+
+/*
+=================================
+    Page Settings
+=================================
+*/
+
+/* Carte Profil */
+.profile-picture {
+    position: relative;
+    margin: 0 auto;
+    width: 150px;
+}
+
+.change-photo-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Zone dangereuse */
+.delete-account-btn {
+    transition: all 0.3s;
+}
+
+.delete-account-btn:hover {
+    background-color: var(--danger-color);
+    color: white !important;
+}
+
+/* Animation pour les modifications */
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(78, 115, 223, 0.25);
+}
+
+/*
+=================================
+    End Page Settings
+=================================
+*/
+
+
+
+
+/*
+=================================
+    Page 404
+=================================
+*/
+
+#op {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.oop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#oops {
+    font-size: 150px;
+    font-weight: 900;
+    background: linear-gradient(180deg, red,  #ff1493, #4b0082,  #1a1a4d);
+    background-clip: text;
+    color: transparent;
+}
+#op_h3 {
+    font-weight: bold;
+    font-size: 30px;
+}
+#op_h5{
+    font-weight: normal;
+    text-align: center;
+}
+#btnx {
+    margin-top: 50px;
+    background-color: blue;
+    color: white;
+    height: 70px;
+    width: 200px;
+    border: none;
+    border-radius: 80px;
+    cursor: pointer;
+}
+#btnx:hover {
+    background-color: red;
+    transition: all 0.5s;
+}
+#op_img {
+    width:200px ;
+    height:200px;
+}
+@media screen and (max-width:970px) {
+    #oops{
+        font-size: 120px;
+    }
+    #op_img {
+        width:200px ;
+        height:200px;
+    }
+}
+a {
+    color: white;
+    text-decoration-line: none;
+}
+@media screen and (max-width:670px) {
+    #oops{
+        font-size: 60px;
+    }
+    .oop {
+        margin-bottom: 20px;
+    }
+    #op_h3 {
+        font-size: 15px;
+    }
+    #op_h5{
+        font-size: 12px;
+    }
+    #op_img {
+        width:100px ;
+        height:100px;
+    }
+    #btnx  {
+        font-size: 12px;
+        width: 150px;
+    }
+}
+
+/*
+=================================
+    End Page 404
+=================================
+*/
+
+
+
+
+
+
+/*
+=================================
+    Alerts + Paginations
+=================================
+*/
+
+.alert-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1100;
+    width: 300px;
+}
+
+.alert {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.alert-position {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1100;
+}
+
+
+/* Pagination personnalisée */
+.dataTables_paginate .paginate_button {
+    margin: 0 2px;
+    border-radius: 50% !important;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dataTables_paginate .paginate_button.current {
+    background: var(--primary-color) !important;
+    color: white !important;
+    border: none !important;
+}
+
+/*
+=================================
+    End Alerts + Paginations
+=================================
+*/
+
+
+
+
+
+
+
+
+
+
+/*
+=================================
+    Responsive Web Design
+=================================
+*/
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    
+    #sidebar.active {
+        margin-left: 0;
+    }
+    
+    .navbar .search-bar {
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    #content {
+        width: 100%;
+    }
+    
+    #content.active {
+        width: calc(100% - 250px);
+    }
+
+    .usersTable .btn-sm {
+        margin-bottom: 2px;
+        display: inline-block;
+    }
+    
+    .usersTable td, .usersTable th {
+        white-space: nowrap;
+    }
+
+    #commandesTable td:nth-child(3),
+    #commandesTable th:nth-child(3) {
+        display: none;
+    }
+    
+    .modal-footer .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .modal-footer {
+        flex-wrap: wrap;
+    }
+
+    #medicamentsTable td:nth-child(3),
+    #medicamentsTable th:nth-child(3) {
+        display: none;
+    }
+    
+    .btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .btn-group .btn {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 992px) {
+    #content, #content.active {
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    #sidebar {
+        margin-left: -250px;
+    }
+    
+    #sidebar.active {
+        margin-left: 0;
+    }
+    
+    #sidebar .search-bar {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .profile-picture {
+        margin-bottom: 1.5rem;
+    }
+    
+    #passwordForm, #systemForm {
+        margin-top: 1.5rem;
+    }
+}
+
+/*
+=================================
+    End Responsive Web Design
+=================================
+*/

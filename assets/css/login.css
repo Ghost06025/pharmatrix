@@ -1,181 +1,121 @@
-*{
+:root{
+    --main-color:rgb(25, 79, 2); /*194f02*/
+    --second-color:rgb(38, 38, 38);/*262626*/
+    --main-font: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
-body{
+
+#app_connexion {
+    display: flex;
+    width: 100vw;
     height: 100vh;
+    flex-direction: row;
+    justify-content: flex-start;
 }
-main{
-    height: 100%;
-}
-section{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-}
-.image{
+
+#connexion_img {
     width: 50%;
-    display: flex;
-    justify-content: left;
-    align-items: left;
-    border: 1px solid black;
-      
+    height: 100vh;
+    background: url('../images/login.jpg') no-repeat top center;
+    background-size: cover;
 }
-.form{
+
+#connexion_form {
     width: 50%;
+    height: 100vh;
+    padding: 10px;
+    text-align: center;
     display: flex;
-    justify-content:center;
-    /* align-items: center;
-    /* margin-left: 50%; */
-}
-.bloc{
-   display: flex;
-   font-weight: 100; 
-
-}
-.bloc img{
-    display: flex;
-    width: 350px;
-    height: 100px;
-    padding-bottom: 40px;
-    margin-left: 20px;
-
- }
-.a{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: gray;
-    font-size: 40px;
-}
-
-
-input{
-    bottom: 5px;
-    margin: 10px;
-    height: 30px;
-    width: 650px;
-    padding: 15px 15px 15px 45px; 
-    font-size: 15px;
-    padding-top: 40px;
-     margin-bottom: 20px;
-     font-size: 25px;
-
-}
-.input{
-    position: relative;
-    margin-bottom: 25px;
-
-}
-.input ::placeholder{
-    position: relative;
-    margin-bottom: 20px;
-
-}
-.bloc span a{
-    color: green;
-    font-size: 20px;
-}
-.bloc span {
-    color:grey;
-    font-size: 20px;
-}
-
-.icon1{
-    position: relative;
-    left: 45px;
-    top: 0;
-    cursor: pointer;
-}
-.connexion span{
-    color:green;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    font-size: 40px;
-    width:600px;
-    padding: 3px;
-    margin-left: 35px;
-    text-decoration: underline;
-    cursor: pointer;
-}
-.text{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-footer{ 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: gray;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-footer .text{
-    margin-top:20px;
-    padding-bottom: 3px;
-    
+
+#connexion_form form {
+    width: 60%;
 }
- .icon{ 
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   font-size: 30px;
+
+#connexion_form .logo_form img {
+    width: 100%;
+    margin: 20px 10px;
 }
-.icon i{
-    padding: 20px;
+
+#connexion_form h1 {
+    font-family: var(--main-font);
+}
+
+#connexion_form .field {
+    position: relative;
+}
+
+#connexion_form .field input {
+    width: 100%;
+    height: 40px;
+    padding: 5px 40px;
+    font-size: 13pt;
+    margin: 15px 0px;
+}
+
+#connexion_form .field i {
+    position: absolute;
+    top: 28px;
+    left: 10px;
+    font-size: 1.2em;
+}
+
+#connexion_form .button input {
+    width: 100%;
+    padding: 15px 5px;
+    font-weight: bold;
+    font-size: 13pt;
+    color: white;
+    background-color: var(--main-color);
+    border: none;
+    cursor: pointer;
+    margin: 10px 0px 10px 0px;
+}
+
+#connexion_footer h3 {
+    margin: 10px 5px 5px 5px;
+}
+
+#connexion_footer .icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#connexion_footer .icon span {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    font-size: 0.7em;
+    margin: 5px;
+    border-radius: 100px;
+    color: white;
+    background-color: var(--main-color);
     cursor: pointer;
 }
-.img{
-    width: 50%;
-    display: flex;
-    justify-content: left;
-    align-items: left;
-    border: 1px solid black;
-    
-}
-@media screen and (max-width: 1000px) {
-    .img{
-        width: 0%;
+
+
+
+
+@media screen and (max-width:650px) {
+    #connexion_img {
         display: none;
-        justify-content: none;
-        align-items: none;
-        border: 1px solid black;
-        
     }
-    .image{
-        width: 50%;
-        display: none;
-        justify-content: left;
-        align-items: left;
-        border: 1px solid black;
-          
-    }  
-    .form{
-        width: 50%;
-        display: flex;
-        justify-content:center;
-        align-items: center;
+
+    #connexion_form {
+        width: 100vw;
     }
-    .bloc{
-       display: flex;
-       font-weight: 100; 
-    
-    }
-    .bloc img{
-        display: flex;
-        width: 350px;
-        height: 100px;
-        padding-bottom: 40px;
-        margin-left: 20px;
-    
-     }
-    .a{
-        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        color: gray;
-        font-size: 40px;
-    }
-   
 }
    

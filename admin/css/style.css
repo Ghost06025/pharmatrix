@@ -276,3 +276,471 @@ body {
         margin: 10px 0;
     }
 }
+
+/* ==== CSS du Dashboard ===== */
+
+/* Additional dashboard specific styles */
+#sidebarCollapse {
+    background: transparent;
+    border: none;
+    color: #d1d3e2;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    margin-right: 1rem;
+}
+
+#sidebarCollapse:hover {
+    color: #4e73df;
+}
+
+.menu-text {
+    transition: opacity 0.3s;
+}
+
+#sidebar.active .menu-text {
+    display: none;
+}
+
+#sidebar.active .sidebar-header h3 {
+    display: none;
+}
+
+#sidebar.active .sidebar-header .logo {
+    margin: 0 auto;
+    display: block;
+}
+
+#sidebar.active {
+    min-width: 80px;
+    max-width: 80px;
+    text-align: center;
+}
+
+#sidebar.active ul li a {
+    padding: 15px 10px;
+    text-align: center;
+}
+
+#sidebar.active ul li a i {
+    margin-right: 0;
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+#sidebar.active ul li a span {
+    font-size: 0.7rem;
+    display: block;
+}
+
+.card-footer {
+    background-color: #f8f9fc;
+    border-top: 1px solid #e3e6f0;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #4e73df;
+    border-color: #4e73df;
+}
+
+.pagination .page-link {
+    color: #4e73df;
+}
+
+.pagination .page-item.active .page-link {
+    color: #fff;
+}
+
+/* Animation for sidebar toggle */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.animated {
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+}
+
+/* ==== CSS du User ===== */
+
+/* Styles spécifiques à la page Utilisateurs */
+
+#usersTable th {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #4e73df;
+    border-bottom: 2px solid #e3e6f0;
+}
+
+#usersTable td {
+    vertical-align: middle;
+}
+
+#usersTable .btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    margin: 0 2px;
+}
+
+.card-header .dropdown-menu {
+    font-size: 0.85rem;
+}
+
+.card-header .dropdown-menu i {
+    width: 20px;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #usersTable .btn-sm {
+        margin-bottom: 2px;
+        display: inline-block;
+    }
+    
+    #usersTable td, #usersTable th {
+        white-space: nowrap;
+    }
+}
+
+/* ===== CSS de commandes ===== */
+
+/* Tableau des commandes */
+#commandesTable {
+    font-size: 0.9rem;
+}
+
+#commandesTable th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    color: #4e73df;
+}
+
+/* Badges de statut */
+.badge-statut {
+    padding: 0.35em 0.65em;
+    font-size: 0.75em;
+    font-weight: 600;
+}
+
+.badge-en-cours {
+    background-color: #f6c23e;
+    color: #000;
+}
+
+.badge-validee {
+    background-color: #1cc88a;
+    color: #fff;
+}
+
+.badge-annulee {
+    background-color: #e74a3b;
+    color: #fff;
+}
+
+/* Wizard de commande */
+.step {
+    display: none;
+}
+
+.step.active {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Indicateur d'étape */
+.step-indicator {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    position: relative;
+}
+
+.step-circle.active {
+    background-color: #4e73df;
+    color: white;
+}
+
+.step-circle.completed {
+    background-color: #1cc88a;
+    color: white;
+}
+
+.step-line {
+    flex-grow: 1;
+    height: 2px;
+    background-color: #e9ecef;
+    margin: 0 10px;
+    align-self: center;
+}
+
+.step-line.active {
+    background-color: #4e73df;
+}
+
+.step-line.completed {
+    background-color: #1cc88a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #commandesTable td:nth-child(3),
+    #commandesTable th:nth-child(3) {
+        display: none;
+    }
+    
+    .modal-footer .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .modal-footer {
+        flex-wrap: wrap;
+    }
+}
+
+/* Confirmation de commande */
+.confirmation-details {
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+}
+
+.confirmation-details p {
+    margin-bottom: 0.5rem;
+}
+
+.confirmation-details hr {
+    margin: 1rem 0;
+    opacity: 0.5;
+}
+
+/* ===== CSS du medicament ===== */
+
+/* Tableau des commandes */
+#commandesTable {
+    font-size: 0.9rem;
+}
+
+#commandesTable th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    color: #4e73df;
+}
+
+/* Badges de statut */
+.badge-statut {
+    padding: 0.35em 0.65em;
+    font-size: 0.75em;
+    font-weight: 600;
+}
+
+.badge-en-cours {
+    background-color: #f6c23e;
+    color: #000;
+}
+
+.badge-validee {
+    background-color: #1cc88a;
+    color: #fff;
+}
+
+.badge-annulee {
+    background-color: #e74a3b;
+    color: #fff;
+}
+
+/* Wizard de commande */
+.step {
+    display: none;
+}
+
+.step.active {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Indicateur d'étape */
+.step-indicator {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    position: relative;
+}
+
+.step-circle.active {
+    background-color: #4e73df;
+    color: white;
+}
+
+.step-circle.completed {
+    background-color: #1cc88a;
+    color: white;
+}
+
+.step-line {
+    flex-grow: 1;
+    height: 2px;
+    background-color: #e9ecef;
+    margin: 0 10px;
+    align-self: center;
+}
+
+.step-line.active {
+    background-color: #4e73df;
+}
+
+.step-line.completed {
+    background-color: #1cc88a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #commandesTable td:nth-child(3),
+    #commandesTable th:nth-child(3) {
+        display: none;
+    }
+    
+    .modal-footer .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .modal-footer {
+        flex-wrap: wrap;
+    }
+}
+
+/* Confirmation de commande */
+.confirmation-details {
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+}
+
+.confirmation-details p {
+    margin-bottom: 0.5rem;
+}
+
+.confirmation-details hr {
+    margin: 1rem 0;
+    opacity: 0.5;
+}
+
+/* ===== CSS du settings ====== */
+
+/* Style spécifique à la page Paramètres */
+
+/* Carte Profil */
+.profile-picture {
+    position: relative;
+    margin: 0 auto;
+    width: 150px;
+}
+
+.change-photo-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Cartes spéciales */
+.card-header.bg-warning {
+    background-color: #f6c23e !important;
+}
+
+.card-header.bg-info {
+    background-color: #36b9cc !important;
+}
+
+.card-header.bg-danger {
+    background-color: #e74a3b !important;
+}
+
+/* Zone dangereuse */
+.delete-account-btn {
+    transition: all 0.3s;
+}
+
+.delete-account-btn:hover {
+    background-color: #e74a3b;
+    color: white !important;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .profile-picture {
+        margin-bottom: 1.5rem;
+    }
+    
+    #passwordForm, #systemForm {
+        margin-top: 1.5rem;
+    }
+}
+
+/* Animation pour les modifications */
+.form-control:focus, .form-select:focus {
+    border-color: #4e73df;
+    box-shadow: 0 0 0 0.25rem rgba(78, 115, 223, 0.25);
+}
+
+/* Alertes */
+.alert-position {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1100;
+}

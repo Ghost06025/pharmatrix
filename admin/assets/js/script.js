@@ -1,4 +1,48 @@
 $(document).ready(function () {
+    // Chemin jusqu'au repertoire portant le fichier
+    function getPathFolder() {
+        const currentURL = window.location.href;
+        const pathArray = currentURL.split('/');
+        const directoryURL = pathArray.slice(0, pathArray.length - 1).join('/');
+        return directoryURL;
+    }
+
+
+    // Data table functionality
+    $('#dataTable').DataTable({
+        responsive: true,
+        language: {
+            url: getPathFolder() + '/assets/js/French.json'
+        },
+        dom: '<"top"f>rt<"bottom"lip><"clear">',
+        pageLength: 10,
+        lengthMenu: [10, 25, 50, 100],
+        columnDefs: [
+            {
+                targets: [5], // Colonne Actions
+                orderable: false,
+                searchable: false
+            }
+        ]
+    });
+
+
+    // Search functionality
+    $('.search-bar form').submit(function(e) {
+        e.preventDefault();
+        const searchTerm = $(this).find('input').val().toLowerCase();
+        
+        $('#dataTable tbody tr').each(function() {
+            const rowText = $(this).text().toLowerCase();
+            if (rowText.indexOf(searchTerm) === -1) {
+                $(this).hide();
+            } else {
+                $(this).show();
+            }
+        });
+    });
+
+
     // Vérification initiale de la largeur de l'ecran
     function checkWidth() {
         if ($(window).width() < 992) {
@@ -51,12 +95,9 @@ $(document).ready(function () {
 
     // Initialize tooltips
     $('[data-bs-toggle="tooltip"]').tooltip();
-});
 
 
-
-// Infobulles pour les icônes en mode réduit
-$(document).ready(function() {
+    // Infobulles pour les icônes en mode réduit
     $('#sidebar.active li a').hover(
         function() {
             $(this).attr('data-bs-toggle', 'tooltip');
@@ -71,37 +112,7 @@ $(document).ready(function() {
             $(this).removeAttr('title');
         }
     );
-});
 
-// JS du Dashboard
-
-// Additional dashboard functionality can be added here
-$(document).ready(function() {
-    // Data table functionality
-    $('#dataTable').DataTable({
-        responsive: true,
-        language: {
-            url: '//cdn.datatables.net/plug-ins/1.10.25/i18n/French.json'
-        },
-        dom: '<"top"f>rt<"bottom"lip><"clear">',
-        pageLength: 10,
-        lengthMenu: [10, 25, 50, 100]
-    });
-
-    // Search functionality
-    $('.search-bar form').submit(function(e) {
-        e.preventDefault();
-        const searchTerm = $(this).find('input').val().toLowerCase();
-        
-        $('#dataTable tbody tr').each(function() {
-            const rowText = $(this).text().toLowerCase();
-            if (rowText.indexOf(searchTerm) === -1) {
-                $(this).hide();
-            } else {
-                $(this).show();
-            }
-        });
-    });
 
     // Summary cards hover effect
     $('.summary-card').hover(
@@ -114,16 +125,26 @@ $(document).ready(function() {
             $(this).css('box-shadow', '0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1)');
         }
     );
-});
 
-// JS de User
 
-$(document).ready(function() {
+
+
+
+
+
+
+
+    /*
+    =======================================
+        Users
+    =======================================
+    */
+
     // Initialisation de DataTable
     $('#usersTable').DataTable({
         responsive: true,
         language: {
-            url: '//cdn.datatables.net/plug-ins/1.10.25/i18n/French.json'
+            url: getPathFolder() + '/assets/js/French.json'
         },
         dom: '<"top"f>rt<"bottom"lip><"clear">',
         pageLength: 10,
@@ -137,16 +158,6 @@ $(document).ready(function() {
         ]
     });
 
-    // Fonctionnalité de recherche
-    $('.search-bar form').submit(function(e) {
-        e.preventDefault();
-        const searchTerm = $(this).find('input').val().toLowerCase();
-        
-        $('#usersTable tbody tr').each(function() {
-            const rowText = $(this).text().toLowerCase();
-            $(this).toggle(rowText.indexOf(searchTerm) > -1);
-        });
-    });
 
     // Bouton d'ajout d'utilisateur
     $('.dropdown-item').on('click', function() {
@@ -164,11 +175,25 @@ $(document).ready(function() {
                 break;
         }
     });
-});
 
-// JS de commande
+    /*
+    =======================================
+        End Users
+    =======================================
+    */
 
-$(document).ready(function() {
+
+
+
+
+
+
+    /*
+    =======================================
+        Commandes
+    =======================================
+    */
+
     // Variables
     let currentStep = 1;
     const totalSteps = 3;
@@ -178,7 +203,7 @@ $(document).ready(function() {
     const commandesTable = $('#commandesTable').DataTable({
         responsive: true,
         language: {
-            url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/fr-FR.json'
+            url: getPathFolder() + '/assets/js/French.json'
         },
         columns: [
             { data: 'id' },
@@ -438,16 +463,37 @@ $(document).ready(function() {
             alert.alert('close');
         }, 5000);
     }
-});
 
-// JS de medicament
+    /*
+    =======================================
+        End Commandes
+    =======================================
+    */
 
-$(document).ready(function() {
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
+    =======================================
+        Medicaments
+    =======================================
+    */
+
     // Configuration de la table avec des données locales
     const medicamentsTable = $('#medicamentsTable').DataTable({
         responsive: true,
         language: {
-            url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/fr-FR.json'
+            url: getPathFolder() + '/assets/js/French.json'
         },
         data: [], // On initialise avec un tableau vide
         columns: [
@@ -504,123 +550,21 @@ $(document).ready(function() {
         }
     });
 
-    // Données de démo (à remplacer par un vrai appel API en production)
-    const demoData = [
-        {
-            id: 1,
-            designation: "Paracétamol",
-            description: "Antidouleur et antipyrétique",
-            prix: 2000,
-            date_ajout: "2023-07-15"
-        },
-        {
-            id: 2,
-            designation: "Ibuprofène",
-            description: "Anti-inflammatoire non stéroïdien",
-            prix: 2500,
-            date_ajout: "2023-07-10"
-        }
-    ];
 
-    // Ajout des données de démo
-    medicamentsTable.rows.add(demoData).draw();
+    /*
+    =======================================
+        End Medicaments
+    =======================================
+    */
 
-    // Gestion de l'ajout de médicament
-    $('.add-medicament-btn').click(function() {
-        $('#medicamentForm')[0].reset();
-        $('#modalTitle').text('Ajouter un médicament');
-        $('#saveBtn').text('Enregistrer').removeClass('btn-success').addClass('btn-primary');
-        $('.alert-container').empty();
-        $('#medicamentModal').modal('show');
-    });
 
-    // Sauvegarde du médicament
-    $('#medicamentForm').submit(function(e) {
-        e.preventDefault();
-        
-        const formData = {
-            designation: $('#designation').val().trim(),
-            description: $('#description').val().trim(),
-            prix: $('#prix').val().trim(),
-            date_ajout: $('#date').val() || new Date().toISOString()
-        };
 
-        // Validation
-        if (!formData.designation || !formData.prix) {
-            showAlert('danger', 'Veuillez remplir tous les champs obligatoires');
-            return;
-        }
+    /*
+    =======================================
+        Settings
+    =======================================
+    */
 
-        if (isNaN(formData.prix) || parseFloat(formData.prix) <= 0) {
-            showAlert('danger', 'Le prix doit être un nombre valide');
-            return;
-        }
-
-        // En production: remplacer par un appel AJAX
-        formData.id = medicamentsTable.data().count() + 1;
-        
-        // Ajout à la table
-        medicamentsTable.row.add(formData).draw();
-        
-        // Fermeture du modal
-        $('#medicamentModal').modal('hide');
-        
-        // Notification
-        showAlert('success', 'Médicament ajouté avec succès!');
-    });
-
-    // Fonction d'affichage des alertes
-    function showAlert(type, message) {
-        const alert = $(`
-            <div class="alert alert-${type} alert-dismissible fade show position-fixed top-0 end-0 m-3" style="z-index: 1100;">
-                ${message}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        `);
-        
-        $('body').append(alert);
-        
-        setTimeout(() => {
-            alert.alert('close');
-        }, 5000);
-    }
-
-    // Gestion des actions (Voir/Modifier/Supprimer)
-    $('#medicamentsTable').on('click', '.view-btn, .edit-btn, .delete-btn', function() {
-        const row = $(this).closest('tr');
-        const rowData = medicamentsTable.row(row).data();
-        
-        if ($(this).hasClass('view-btn')) {
-            // Vue détaillée
-            alert(`Détails du médicament:\n\nID: ${rowData.id}\nDésignation: ${rowData.designation}\nPrix: ${rowData.prix} FCFA`);
-        } 
-        else if ($(this).hasClass('edit-btn')) {
-            // Édition
-            $('#modalTitle').text('Modifier le médicament');
-            $('#saveBtn').text('Mettre à jour').removeClass('btn-primary').addClass('btn-success');
-            $('#designation').val(rowData.designation);
-            $('#description').val(rowData.description);
-            $('#prix').val(rowData.prix);
-            if (rowData.date_ajout) {
-                $('#date').val(rowData.date_ajout.split('T')[0]);
-            }
-            $('.alert-container').empty();
-            $('#medicamentModal').data('editId', rowData.id);
-            $('#medicamentModal').modal('show');
-        }
-        else if ($(this).hasClass('delete-btn')) {
-            // Suppression
-            if (confirm('Voulez-vous vraiment supprimer ce médicament ?')) {
-                medicamentsTable.row(row).remove().draw();
-                showAlert('success', 'Médicament supprimé avec succès!');
-            }
-        }
-    });
-});
-
-// JS de settings
-
-$(document).ready(function() {
     // Gestion du formulaire de profil
     $('#profileForm').submit(function(e) {
         e.preventDefault();
@@ -768,4 +712,10 @@ $(document).ready(function() {
             alert.alert('close');
         }, 5000);
     }
+
+    /*
+    =======================================
+        End Settings
+    =======================================
+    */
 });
